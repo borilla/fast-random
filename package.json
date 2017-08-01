@@ -1,0 +1,36 @@
+{
+  "name": "fast-random",
+  "version": "1.0.0",
+  "description": "Fast simple seedable pseudo-random number generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run unit-test && npm run lint",
+    "unit-test": "mocha test",
+    "lint": "eslint .",
+    "example": "node example/example.js",
+    "precommit": "npm test",
+    "postcommit": "npm --no-git-tag-version version patch",
+    "prepublish": "npm test",
+    "prepush": "npm test"
+  },
+  "keywords": [
+    "fast",
+    "seed",
+    "seedable",
+    "random",
+    "number",
+    "prng",
+    "lehmer",
+    "park",
+    "miller"
+  ],
+  "author": "borilla",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.1.0",
+    "eslint": "^4.3.0",
+    "husky": "^0.14.3",
+    "mocha": "^3.5.0"
+  },
+  "tonicExampleFilename": "./example/runkit/example.js"
+}

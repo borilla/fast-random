@@ -1,2 +1,46 @@
 # fast-random
-Fast, simple, seedable pseudo-random number generator
+
+[![npm version](https://badge.fury.io/js/fast-random.svg)](https://badge.fury.io/js/fast-random)
+
+Simple fast seedable pseudo-random number generator
+
+## Purpose
+
+Returns a single function that creates a new pseudo-random number generator (PRNG) based on the provided seed value. The generator returns 32-bit pseudo-random integers using the [Lehmer/Park-Miller generator](https://en.wikipedia.org/wiki/Lehmer_random_number_generator). This is a circular generator, which will cycle through all **2147483646** possible values before repeating
+
+While not the most robust of PRNGs, the code has a very small footprint, is extremely quick and produces results which will be good enough for many purposes. It has been written to work both within Node.js and in the browser
+
+## API Summary
+
+* `seed(SEED_VALUE)` : set the current seed value
+* `next()` : get the next integer value `0 <= x <= 2147483645`
+* `float()` : get the next float value `0 <= x < 1`
+
+## Example
+
+```js
+const random = require('fast-random');
+
+// create a new generator
+const SEED = 12345;
+const r = random(SEED);
+
+// produce some integer values
+for (let i = 0; i < 8; ++i) {
+	console.log(r.next());
+}
+
+// reset the seed
+r.seed(SEED);
+
+// produce some floating point values
+for (let j = 0; j < 8; ++j) {
+	console.log(r.float());
+}
+```
+
+## More information
+
+* https://en.wikipedia.org/wiki/Lehmer_random_number_generator
+* http://www.firstpr.com.au/dsp/rand31/
+* http://lab.polygonal.de/2007/04/21/a-good-pseudo-random-number-generator-prng/
