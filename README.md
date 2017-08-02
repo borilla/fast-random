@@ -22,18 +22,19 @@ Get a new random number generator
 
 ```js
 const random = require('fast-random');
-
 const seed = 12345;
 const generator = random(seed);
 ```
 
 The returned generator contains the following functions
 
-* `seed(SEED_VALUE)`: set the current seed value
-* `next()`: get the next integer value _(1 <= x <= 2147483646)_
-* `float()`: get the next float value _(0 <= x < 1)_
+* `seed(SEED_VALUE)`: set the current seed value (SEED_VALUE is an integer)
+* `nextInt()`: get the next integer value _(1 <= x <= 2147483646)_
+* `nextFloat()`: get the next float value _(0 <= x < 1)_
 
-## Example
+## Examples
+
+### General use
 
 ```js
 const random = require('fast-random');
@@ -44,7 +45,7 @@ const r = random(seed);
 
 // produce some integer values
 for (let i = 0; i < 8; ++i) {
-	console.log(r.next());
+	console.log(r.nextInt());
 }
 
 // reset the seed
@@ -52,7 +53,28 @@ r.seed(seed);
 
 // produce some floating point values
 for (let j = 0; j < 8; ++j) {
-	console.log(r.float());
+	console.log(r.nextFloat());
+}
+```
+
+### Set seed from current time
+
+```
+const random = require('fast-random');
+const seed = Date.now();
+const r = random(seed);
+```
+
+### Get integers in a given range
+
+```js
+const random = require('fast-random');
+const seed = 12345;
+const r = random(seed);
+
+// get random number between a and b inclusive, ie (a <= x <= b)
+function getRandomBetween(a, b) {
+	return a + r.nextInt() % (b - a + 1);
 }
 ```
 

@@ -34,12 +34,12 @@ describe('random', function () {
 			expect(r.seed).to.be.a('function');
 		});
 
-		it('should contain a "next" function', function () {
-			expect(r.next).to.be.a('function');
+		it('should contain a "nextInt" function', function () {
+			expect(r.nextInt).to.be.a('function');
 		});
 
-		it('should contain a "float" function', function () {
-			expect(r.float).to.be.a('function');
+		it('should contain a "nextFloat" function', function () {
+			expect(r.nextFloat).to.be.a('function');
 		});
 	});
 
@@ -52,15 +52,15 @@ describe('random', function () {
 			});
 
 			it('should return expected int values', function () {
-				expect(r.next()).to.equal(int1);
-				expect(r.next()).to.equal(int2);
-				expect(r.next()).to.equal(int3);
+				expect(r.nextInt()).to.equal(int1);
+				expect(r.nextInt()).to.equal(int2);
+				expect(r.nextInt()).to.equal(int3);
 			});
 
 			it('should return expected float values', function () {
-				expect(r.float()).to.be.closeTo(float1, FLOAT_PRECISION);
-				expect(r.float()).to.be.closeTo(float2, FLOAT_PRECISION);
-				expect(r.float()).to.be.closeTo(float3, FLOAT_PRECISION);
+				expect(r.nextFloat()).to.be.closeTo(float1, FLOAT_PRECISION);
+				expect(r.nextFloat()).to.be.closeTo(float2, FLOAT_PRECISION);
+				expect(r.nextFloat()).to.be.closeTo(float3, FLOAT_PRECISION);
 			});
 
 			describe('when seed is reset', function () {
@@ -69,9 +69,9 @@ describe('random', function () {
 				});
 
 				it('should reset the sequence', function () {
-					expect(r.next()).to.equal(int1);
-					expect(r.next()).to.equal(int2);
-					expect(r.next()).to.equal(int3);
+					expect(r.nextInt()).to.equal(int1);
+					expect(r.nextInt()).to.equal(int2);
+					expect(r.nextInt()).to.equal(int3);
 				});
 			});
 		});
@@ -86,10 +86,10 @@ describe('random', function () {
 		});
 
 		it('will effectively start with a seed of 0', function () {
-			expect(r1.next()).to.equal(r2.next());
-			expect(r1.next()).to.equal(r2.next());
-			expect(r1.next()).to.equal(r2.next());
-			expect(r1.next()).to.equal(r2.next());
+			expect(r1.nextInt()).to.equal(r2.nextInt());
+			expect(r1.nextInt()).to.equal(r2.nextInt());
+			expect(r1.nextInt()).to.equal(r2.nextInt());
+			expect(r1.nextInt()).to.equal(r2.nextInt());
 		});
 	});
 
@@ -102,10 +102,10 @@ describe('random', function () {
 		});
 
 		it('will effectively start with a seed of 2147483646', function () {
-			expect(r1.next()).to.equal(r2.next());
-			expect(r1.next()).to.equal(r2.next());
-			expect(r1.next()).to.equal(r2.next());
-			expect(r1.next()).to.equal(r2.next());
+			expect(r1.nextInt()).to.equal(r2.nextInt());
+			expect(r1.nextInt()).to.equal(r2.nextInt());
+			expect(r1.nextInt()).to.equal(r2.nextInt());
+			expect(r1.nextInt()).to.equal(r2.nextInt());
 		});
 	});
 
@@ -119,10 +119,10 @@ describe('random', function () {
 		});
 
 		it('will effectively trim floating-point part', function () {
-			expect(r1.next()).to.equal(r2.next());
-			expect(r1.next()).to.equal(r2.next());
-			expect(r1.next()).to.equal(r2.next());
-			expect(r1.next()).to.equal(r2.next());
+			expect(r1.nextInt()).to.equal(r2.nextInt());
+			expect(r1.nextInt()).to.equal(r2.nextInt());
+			expect(r1.nextInt()).to.equal(r2.nextInt());
+			expect(r1.nextInt()).to.equal(r2.nextInt());
 		});
 	});
 
@@ -136,10 +136,10 @@ describe('random', function () {
 		});
 
 		it('will effectively add 2147483646', function () {
-			expect(r1.next()).to.equal(r2.next());
-			expect(r1.next()).to.equal(r2.next());
-			expect(r1.next()).to.equal(r2.next());
-			expect(r1.next()).to.equal(r2.next());
+			expect(r1.nextInt()).to.equal(r2.nextInt());
+			expect(r1.nextInt()).to.equal(r2.nextInt());
+			expect(r1.nextInt()).to.equal(r2.nextInt());
+			expect(r1.nextInt()).to.equal(r2.nextInt());
 		});
 	});
 });
