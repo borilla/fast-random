@@ -3,13 +3,15 @@ var random = require('../index');
 var chai = require('chai');
 var expect = chai.expect;
 
+/* eslint-disable no-multi-spaces */
 var EXPECTED_VALUES = [
-	{ seed: 0, int1: 2147435375, int2: 1964877852, int3: 856088760, float1: 0.9999775220639794, float2: 0.9149675508169155, float3: 0.39864739440255553 },
-	{ seed: 1, int1: 48270, int2: 182605793, int3: 1291394885, float1: 0.00002247747035927835, float2: 0.0850324487174232, float3: 0.6013526051317831 },
-	{ seed: 2, int1: 96541, int2: 365211587, int3: 435306124, float1: 0.00004495540637984444, float2: 0.1700648979005077, float3: 0.2027052102635663 },
-	{ seed: 2147483645, int1: 2147387104, int2: 1782272058, int3: 1712177521, float1: 0.9999550441279589, float2: 0.829935101633831, float3: 0.7972947892707724 },
-	{ seed: 2147483646, int1: 2147435375, int2: 1964877852, int3: 856088760, float1: 0.9999775220639794, float2: 0.9149675508169155, float3: 0.39864739440255553 },
+	{ seed: 0,          int1: 2147435376, int2: 1964877853, int3: 856088761,  float1: 0.9999775220639794,     float2: 0.9149675508169155, float3: 0.39864739440255553 },
+	{ seed: 1,          int1: 48271,      int2: 182605794,  int3: 1291394886, float1: 0.00002247747035927835, float2: 0.0850324487174232, float3: 0.6013526051317831  },
+	{ seed: 2,          int1: 96542,      int2: 365211588,  int3: 435306125,  float1: 0.00004495540637984444, float2: 0.1700648979005077, float3: 0.2027052102635663  },
+	{ seed: 2147483645, int1: 2147387105, int2: 1782272059, int3: 1712177522, float1: 0.9999550441279589,     float2: 0.829935101633831,  float3: 0.7972947892707724  },
+	{ seed: 2147483646, int1: 2147435376, int2: 1964877853, int3: 856088761,  float1: 0.9999775220639794,     float2: 0.9149675508169155, float3: 0.39864739440255553 }, // same as seed(0)
 ];
+/* eslint-enable no-multi-spaces */
 var FLOAT_PRECISION = 1e-12;
 
 describe('random', function () {
@@ -80,6 +82,22 @@ describe('random', function () {
 
 		beforeEach(function () {
 			r1 = random();
+			r2 = random(0);
+		});
+
+		it('will effectively start with a seed of 0', function () {
+			expect(r1.next()).to.equal(r2.next());
+			expect(r1.next()).to.equal(r2.next());
+			expect(r1.next()).to.equal(r2.next());
+			expect(r1.next()).to.equal(r2.next());
+		});
+	});
+
+	describe('when called with a seed of 0', function () {
+		var r1, r2;
+
+		beforeEach(function () {
+			r1 = random(0);
 			r2 = random(2147483646);
 		});
 

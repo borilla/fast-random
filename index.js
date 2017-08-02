@@ -6,13 +6,11 @@ function random(seed) {
 	}
 
 	function _next() {
-		seed = seed * 48271 % 2147483647;
-
-		return seed - 1;
+		return seed = seed * 48271 % 2147483647;
 	}
 
 	function _float() {
-		return _next() / 2147483646;
+		return (_next() - 1) / 2147483646;
 	}
 
 	_seed(seed);

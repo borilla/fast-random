@@ -8,13 +8,13 @@ Simple fast seedable pseudo-random number generator
 
 Returns a single function that creates a new pseudo-random number generator (PRNG) based on the provided seed value. The generator returns 32-bit pseudo-random integers using the [Lehmer/Park-Miller generator](https://en.wikipedia.org/wiki/Lehmer_random_number_generator). This is a circular generator, which will cycle through all **2147483646** possible values before repeating
 
-While not the most robust of PRNGs, the code has a very small footprint, is extremely quick and produces results which will be good enough for many purposes. It has been written to work both within Node.js and in the browser
+While not the most robust of PRNGs, the code has a very small footprint, is extremely quick and produces results good enough for many purposes. It has been written to work both within Node.js and in the browser
 
 ## API Summary
 
 * `seed(SEED_VALUE)` : set the current seed value
-* `next()` : get the next integer value `0 <= x <= 2147483645`
-* `float()` : get the next float value `0 <= x < 1`
+* `next()` : get the next integer value (**_1 <= x <= 2147483646_**)
+* `float()` : get the next float value (**_0 <= x < 1_**)
 
 ## Example
 
