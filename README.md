@@ -22,6 +22,7 @@ Get a new random number generator
 
 ```js
 const random = require('fast-random');
+
 const seed = 12345;
 const generator = random(seed);
 ```
@@ -59,8 +60,9 @@ for (let j = 0; j < 8; ++j) {
 
 ### Set seed from current time
 
-```
+```js
 const random = require('fast-random');
+
 const seed = Date.now();
 const r = random(seed);
 ```
@@ -69,6 +71,7 @@ const r = random(seed);
 
 ```js
 const random = require('fast-random');
+
 const seed = 12345;
 const r = random(seed);
 
