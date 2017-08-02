@@ -1,6 +1,6 @@
 {
   "name": "fast-random",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Fast simple seedable pseudo-random number generator",
   "main": "index.js",
   "scripts": {
@@ -12,6 +12,10 @@
     "postcommit": "npm --no-git-tag-version version patch",
     "prepublish": "npm test",
     "prepush": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/borilla/fast-random.git"
   },
   "keywords": [
     "fast",
@@ -26,6 +30,10 @@
   ],
   "author": "borilla",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/borilla/fast-random/issues"
+  },
+  "homepage": "https://github.com/borilla/fast-random#readme",
   "devDependencies": {
     "chai": "^4.1.0",
     "eslint": "^4.3.0",
