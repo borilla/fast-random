@@ -1,6 +1,6 @@
 function random(seed) {
 	function _seed(s) {
-		if ((seed = s|0 % 2147483647) <= 0) {
+		if ((seed = (s|0) % 2147483647) <= 0) {
 			seed += 2147483646;
 		}
 	}

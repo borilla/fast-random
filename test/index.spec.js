@@ -136,6 +136,16 @@ describe('random', function () {
 		});
 
 		it('will effectively add 2147483646', function () {
+	describe('when called with a massive negative seed', function () {
+		var seed = -9999999999;
+		var r1, r2;
+
+		beforeEach(function () {
+			r1 = random(seed);
+			r2 = random(737418239);
+		});
+
+		it('should correctly fix the seed to lie in the range 1..2147483646', function () {
 			expect(r1.nextInt()).to.equal(r2.nextInt());
 			expect(r1.nextInt()).to.equal(r2.nextInt());
 			expect(r1.nextInt()).to.equal(r2.nextInt());
