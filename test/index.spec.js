@@ -85,7 +85,7 @@ describe('random', function () {
 			r2 = random(0);
 		});
 
-		it('will effectively start with a seed of 0', function () {
+		it('should effectively start with a seed of 0', function () {
 			expect(r1.nextInt()).to.equal(r2.nextInt());
 			expect(r1.nextInt()).to.equal(r2.nextInt());
 			expect(r1.nextInt()).to.equal(r2.nextInt());
@@ -101,7 +101,7 @@ describe('random', function () {
 			r2 = random(2147483646);
 		});
 
-		it('will effectively start with a seed of 2147483646', function () {
+		it('should effectively start with a seed of 2147483646', function () {
 			expect(r1.nextInt()).to.equal(r2.nextInt());
 			expect(r1.nextInt()).to.equal(r2.nextInt());
 			expect(r1.nextInt()).to.equal(r2.nextInt());
@@ -118,7 +118,7 @@ describe('random', function () {
 			r2 = random(Math.floor(seed));
 		});
 
-		it('will effectively trim floating-point part', function () {
+		it('should effectively trim floating-point part', function () {
 			expect(r1.nextInt()).to.equal(r2.nextInt());
 			expect(r1.nextInt()).to.equal(r2.nextInt());
 			expect(r1.nextInt()).to.equal(r2.nextInt());
@@ -135,7 +135,14 @@ describe('random', function () {
 			r2 = random(seed + 2147483646);
 		});
 
-		it('will effectively add 2147483646', function () {
+		it('should effectively add 2147483646', function () {
+			expect(r1.nextInt()).to.equal(r2.nextInt());
+			expect(r1.nextInt()).to.equal(r2.nextInt());
+			expect(r1.nextInt()).to.equal(r2.nextInt());
+			expect(r1.nextInt()).to.equal(r2.nextInt());
+		});
+	});
+
 	describe('when called with a massive negative seed', function () {
 		var seed = -9999999999;
 		var r1, r2;
