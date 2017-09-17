@@ -1,6 +1,6 @@
 {
   "name": "fast-random",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "Fast simple seedable pseudo-random number generator",
   "main": "index.js",
   "scripts": {

@@ -12,7 +12,7 @@ module.exports = {
 		'mocha/handle-done-callback': 'error',
 		'mocha/no-global-tests': 'error',
 		'mocha/valid-test-description': 'warn',
-		'mocha/valid-suite-description': 'error',
+		'mocha/valid-suite-description': ['warn', /[a-z]/i],
 		'mocha/no-mocha-arrows': 'error',
 		'mocha/no-sibling-hooks': 'error',
 		'mocha/no-top-level-hooks': 'error',
